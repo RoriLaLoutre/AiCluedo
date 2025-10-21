@@ -60,7 +60,7 @@
   />
 
   <!-- Zones de texte positionnées -->
-  <div class="absolute top-[15%] left-[10%] w-[30%] h-[25%]">
+  <div class="absolute top-[15%] left-[20%] w-[25%] h-[40%]">
     <textarea
       v-model="folderText1"
       class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
@@ -68,7 +68,7 @@
     ></textarea>
   </div>
 
-  <div class="absolute bottom-[15%] left-[10%] w-[30%] h-[20%]">
+  <div class="absolute bottom-[17%] left-[17%] w-[30%] h-[19%]">
     <textarea
       v-model="folderText2"
       class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
@@ -76,7 +76,7 @@
     ></textarea>
   </div>
 
-  <div class="absolute top-[15%] right-[10%] w-[40%] h-[70%]">
+  <div class="absolute top-[15%] right-[20%] w-[25%] h-[70%]">
     <textarea
       v-model="folderText3"
       class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
