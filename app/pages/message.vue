@@ -66,5 +66,6 @@ function sendMessage() {
     messages.value.push(assistantMessage)
   }, 500)
 }
+
 </script>
 
