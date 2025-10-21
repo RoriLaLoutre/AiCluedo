@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useSendMessageToAi } from '~/composables/sendMessageToAi'
+import { ahu } from "~/composables/witness";
 
 const réponse = ref<any>(null)
 const erreur = ref<string | null>(null)
