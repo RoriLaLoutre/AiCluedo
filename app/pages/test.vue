@@ -53,12 +53,6 @@
       v-if="modalType === 'folder'"
       class="relative bg-[#1f1f1f] p-4 rounded-xl shadow-lg w-[1000px] h-[650px]"
     >
-      <UButton
-        icon="i-lucide-x"
-        variant="ghost"
-        class="absolute top-8 right-0 z-10 text-white text-2xl cursor-pointer hover:bg-white/10"
-        @click="closeModal"
-      /> 
       <img
         src="/Group_3.png"
         alt="Dossier d'enquête"
