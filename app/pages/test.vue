@@ -56,7 +56,7 @@
       <UButton
         icon="i-lucide-x"
         variant="ghost"
-        class="absolute top-10 right-2 z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
+        class="absolute top-[5%] right-[0%] z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
         @click="closeModal"
       /> 
       <img
