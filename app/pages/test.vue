@@ -55,9 +55,10 @@
     >
       <UButton
         icon="i-lucide-x"
-        class="absolute top-4 right-4 z-10"
+        variant="ghost"
+        class="absolute top-10 right-2 z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
         @click="closeModal"
-      />
+      /> 
       <img
         src="/Group 3.png"
         alt="Dossier d'enquête"
