@@ -29,13 +29,12 @@
         <UButton icon="i-lucide-x" variant="ghost" color="primary" @click="closeModal" />
       </div>
 
-      <div class="max-w-xl mx-auto flex flex-col h-[70vh] rounded-2xl bg-brand-navy text-white overflow-hidden">
+      <div class="max-w-xl mx-auto flex flex-col h-[70vh] rounded-2xl overflow-hidden">
         <div class="flex-1 overflow-y-auto p-4">
           <UChatMessages
             :messages="messages"
             :assistant="{
             variant: 'solid',
-            avatar: { icon: 'i-lucide-bot' },
             }"
             :user="{
                 variant: 'solid',
@@ -109,3 +108,28 @@ function sendMessage() {
   }, 500)
 }
 </script>
+<style scoped>
+::v-deep(article[data-role="user"] > div) {
+  justify-content: flex-end; /* pousse le container à droite */
+  text-align: right;  
+}
+::v-deep(article[data-role="user"] > div > div) {
+  background-color: #2563eb; 
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white; 
+}
+::v-deep(article[data-role="assistant"] > div) {
+  justify-content: flex-start; /* pousse le container à gauche */
+  text-align: left;  
+}
+::v-deep(article[data-role="assistant"] > div > div) {
+  background-color: #121B7A; 
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white; 
+}
+</style>
