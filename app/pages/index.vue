@@ -1,8 +1,0 @@
-<template>
-  <div class="min-h-screen bg-green-500 flex items-center justify-center">
-    <div class="bg-white p-8 rounded-lg shadow-xl">
-      <h1 class="text-3xl font-bold text-blue-600">Bienvenue à la page d'accueil</h1>
-      <p class="text-gray-600 mt-4">Si vous voyez du vert en fond, Tailwind fonctionne ici aussi !</p>
-    </div>
-  </div>
-</template>
