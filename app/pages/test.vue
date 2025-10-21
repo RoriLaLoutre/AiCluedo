@@ -26,27 +26,34 @@
     @click.self="closeModal"
   >
     <div class="bg-white rounded-xl p-8 w-96 shadow-lg text-center relative">
-      <h2 class="text-2xl font-bold mb-4">👤 {{ selectedAvatar }}</h2>
-      <p class="text-gray-600 mb-6">Voici les détails de {{ selectedAvatar }}.</p>
+      <div class="flex w-full justify-between">
+        <h2 class="text-2xl font-bold mb-4">Chat with {{ selectedAvatar }}</h2>
+        <UButton class="text-2xl" icon="i-lucide-x" color="primary" @click="closeModal"></UButton>
+      </div>
+      <div class="max-w-xl mx-auto flex flex-col h-[80vh] border rounded-2xl shadow-sm bg-white">
+        <div class="flex-1 overflow-y-auto p-4">
+          <UChatMessages :messages="messages" />
+        </div>
 
-      <button
-        @click="closeModal"
-        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-      >
-        Fermer
-      </button>
-    </div>
+        <div class="p-3 border-t flex gap-2 items-center">
+          <UInput v-model="input" placeholder="Type your message..." class="flex-1" @keyup.enter="sendMessage" />
+          <UButton color="primary" @click="sendMessage">Send</UButton>
+          <UButton icon="i-lucide-arrow-up-from-line" color="primary" @click="sendMessage"></UButton>
+        </div>
+      </div>
+      </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { UIMessage } from 'ai'
 import { ref } from 'vue'
 
 // état de la modale
 const showModal = ref(false)
 const selectedAvatar = ref('')
 
-const openModal = (avatarName) => {
+const openModal = (avatarName:string) => {
   selectedAvatar.value = avatarName
   showModal.value = true
 }
@@ -54,4 +61,28 @@ const openModal = (avatarName) => {
 const closeModal = () => {
   showModal.value = false
 }
+
+
+const messages = ref<UIMessage[]>([
+  {
+    id: crypto.randomUUID(),
+    role: 'assistant',
+    parts: [{ type: 'text', text: "Salut ...  I am your virtual assistant."}]
+  }
+])
+
+const input = ref('')
+
+function sendMessage() {
+  if (!input.value.trim()) return
+
+  messages.value.push({
+    id: crypto.randomUUID(),
+    role: 'user',
+    parts: [{ type: 'text', text: input.value }]
+  })
+
+  input.value = ''
+}
+
 </script>
