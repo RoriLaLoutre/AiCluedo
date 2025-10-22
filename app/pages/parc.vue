@@ -77,7 +77,7 @@
         @click="closeModal"
       /> 
       <img
-        src="/Group 3.png"
+        src="../../group3.png"
         alt="Dossier d'enquête"
         class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
       />
