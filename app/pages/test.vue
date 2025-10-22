@@ -40,10 +40,10 @@
             v-model="input"
             placeholder="Type your message..."
             class="flex-1"
-            @keyup.enter="sendMessage"
+            @keyup.enter="sendMessage(mathis)"
           />
-          <UButton color="primary" @click="sendMessage">Send</UButton>
-          <UButton icon="i-lucide-arrow-up-from-line" color="primary" @click="sendMessage" />
+          <UButton color="primary" @click="sendMessage(mathis)">Send</UButton>
+          <UButton icon="i-lucide-arrow-up-from-line" color="primary" @click="sendMessage(mathis)" />
         </div>
       </div>
     </div>
@@ -99,6 +99,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { UIMessage } from 'ai'
+import { mathis } from "../composables/witness";
 
 const showModal = ref(false)
 const modalType = ref<'avatar' | 'folder' | null>(null)
@@ -129,7 +130,7 @@ const messages = ref<UIMessage[]>([
 
 const input = ref('')
 
-function sendMessage() {
+async function sendMessage(mathis:any) {
   if (!input.value.trim()) return
 
   const userMessage: UIMessage = {
@@ -142,12 +143,20 @@ function sendMessage() {
 
   const messageContent = input.value
   input.value = ''
+  const reponseIa = '';
+  mathis.messages.push({
+    role: "user", 
+    content: messageContent
+  })
+
+
+  const res = await useSendMessageToAi(JSON.stringify(mathis))
 
   setTimeout(() => {
     const assistantMessage: UIMessage = {
       id: crypto.randomUUID(),
       role: 'assistant',
-      parts: [{ type: 'text', text: `Vous avez dit : "${messageContent}"` }]
+      parts: [{ type: 'text', text: `${res}` }]
     }
     messages.value.push(assistantMessage)
   }, 500)
