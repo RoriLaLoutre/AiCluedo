@@ -2,9 +2,9 @@ export async function useSendMessageToAi(body: any): Promise<string> {
   try {
     const res = await $fetch<{ message: string }>('/api/chat', {
       method: 'POST',
-      body: body
+      body: JSON.stringify(body)
     })
-    
+    console.log(body)
     return res.message
     
   } catch (e: any) {
