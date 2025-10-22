@@ -46,6 +46,7 @@
 <UChatMessages
   v-if="selectedAvatar"
   :messages="selectedAvatar.messages"
+  :shouldAutoScroll="true"
   :assistant="{ variant: 'solid' }"
   :user="{ variant: 'solid', side: 'right' }"
 />
@@ -188,10 +189,18 @@ async function sendMessage(persona: any) {
     role: 'user',
     content: messageContent
   })
+  persona.data.messages.push({
+    role: 'user',
+    content: messageContent
+  })
 
   const res = await useSendMessageToAi(persona.data) // tu continues à envoyer la data du témoin
 
   persona.messages.push({
+    role: 'assistant',
+    content: res
+  })
+  persona.data.messages.push({
     role: 'assistant',
     content: res
   })
