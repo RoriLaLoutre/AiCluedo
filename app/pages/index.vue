@@ -62,11 +62,7 @@
 
       <!-- Bas : bouton principal -->
       <div class="flex flex-col items-center">
-        <button
-            class="bg-gradient-to-r from-[#b874ff] to-[#d59fff] text-white rounded-xl px-10 py-2.5 text-base font-semibold shadow-[0_0_20px_rgba(184,116,255,0.5)] hover:shadow-[0_0_30px_rgba(184,116,255,0.8)] hover:scale-105 transition-all"
-        >
-          Jouer maintenant
-        </button>
+
       </div>
     </div>
 
