@@ -1,19 +1,34 @@
 <template>
-  <div class="p-20">
-    <div class="flex justify-between gap-4 mb-4">
-      <p class="cursor-pointer hover:text-brand-blue text-brand-navy" @click="openModal('avatar', 'mathis')">avatar 1</p>
-      <p class="cursor-pointer hover:text-brand-blue text-brand-navy" @click="openModal('avatar', 'ricardo')">avatar 2</p>
-    </div>
-    <div class="flex justify-between gap-4 mb-4">
-      <p class="cursor-pointer hover:text-brand-blue text-brand-navy" @click="openModal('avatar', 'esteban')">avatar 3</p>
-      <p class="cursor-pointer hover:text-brand-blue text-brand-navy" @click="openModal('avatar', 'ahu')">avatar 4</p>
-    </div>
-    <div class="flex justify-center gap-4 mb-10">
-      <p class="cursor-pointer hover:text-brand-blue text-brand-navy" @click="openModal('folder')">Fichier d'enquéte</p>
-    </div>
+  <div class="p-20 bg-[url(../../parc.png)] bg-cover min-h-screen flex flex-col items-center">
+    <img 
+      src="../../woman.png" alt="woman" 
+      class="w-30 h-30 absolute top-[45%] left-[25%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
+      @click="openModal('avatar', 'ricardo')"    
+      />
+    <img 
+      src="../../man1.png" alt="man" 
+      class="w-30 h-30 absolute top-[30%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
+      @click="openModal('avatar', 'ahu')"
+      />
+    <img 
+      src="../../man2.png" alt="man" 
+      class="w-30 h-30 absolute top-[70%] left-[10%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
+      @click="openModal('avatar', 'esteban')"
+      />
+    <img
+      src="../../woman2.png" alt="woman"   
+      class="w-30 h-30 absolute top-[65%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer"
+      @click="openModal('avatar', 'mathis')"
+    />
+    <img
+      src="../../folder.png" alt="folder"   
+      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent hover:border-brand-purple border-8 transition duration-300 cursor-pointer"
+      @click="openModal('folder')"
+    />
+
 
     <div class="flex items-center justify-center">
-      <button class="bg-brand-navy text-white px-6 py-3 rounded hover:bg-brand-blue">Start</button>
+      <button class="bg-brand-navy text-white px-6 py-3 rounded hover:bg-brand-blue">Dénoncer</button>
     </div>
   </div>
 
@@ -31,6 +46,7 @@
 <UChatMessages
   v-if="selectedAvatar"
   :messages="selectedAvatar.messages"
+  :shouldAutoScroll="true"
   :assistant="{ variant: 'solid' }"
   :user="{ variant: 'solid', side: 'right' }"
 />
@@ -54,12 +70,18 @@
       v-if="modalType === 'folder'"
       class="relative bg-[#1f1f1f] p-4 rounded-xl shadow-lg w-[1000px] h-[650px]"
     >
+      <UButton
+        icon="i-lucide-x"
+        variant="ghost"
+        class="absolute top-[5%] right-[0%] z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
+        @click="closeModal"
+      /> 
       <img
-        src="/Group_3.png"
+        src="/Group 3.png"
         alt="Dossier d'enquête"
-        class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
       />
-      <div class="absolute top-[10%] left-[15%] w-[30%] h-[50%] overflow-y-auto">
+      <div class="absolute top-[15%] left-[20%] w-[25%] h-[40%] overflow-y-auto">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
           C'est une belle après-midi d'été au parc.
           Tout le monde fait la sieste après avoir bien joué…
@@ -69,7 +91,7 @@
           À toi de mener l'enquête : interroge les enfants, écoute leurs souvenirs, et découvre qui a volé les billes de Capucine !
         </p>
       </div>
-      <div class="absolute bottom-[14%] left-[13%] w-[35%] h-[20%] overflow-y-auto">
+      <div class="absolute bottom-[17%] left-[17%] w-[30%] h-[19%] overflow-y-auto">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
           Indice:
           <br>
@@ -167,10 +189,18 @@ async function sendMessage(persona: any) {
     role: 'user',
     content: messageContent
   })
+  persona.data.messages.push({
+    role: 'user',
+    content: messageContent
+  })
 
   const res = await useSendMessageToAi(persona.data) // tu continues à envoyer la data du témoin
 
   persona.messages.push({
+    role: 'assistant',
+    content: res
+  })
+  persona.data.messages.push({
     role: 'assistant',
     content: res
   })

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useSendMessageToAi } from '~/composables/sendMessageToAi'
-import { ahu } from "~/composables/witness";
+import { ahu , mathis , ricardo} from "~/composables/witness";
 
 const réponse = ref<any>(null)
 const erreur = ref<string | null>(null)
@@ -9,7 +9,7 @@ const erreur = ref<string | null>(null)
 onMounted(async () => {
   try {
     // Appel à ton API composable
-    réponse.value = await useSendMessageToAi(ahu)
+    réponse.value = await useSendMessageToAi(ricardo)
     console.log("Réponse API :", JSON.stringify(réponse.value, null, 2))
   } catch (e: any) {
     erreur.value = e.message
