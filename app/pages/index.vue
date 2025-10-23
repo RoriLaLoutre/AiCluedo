@@ -9,15 +9,17 @@
         <img
             src="/images/En_quete_de_verite_logo.png"
             alt="Logo En Quête de Vérité"
-            class="w-[380px] max-w-[80%] drop-shadow-[0_0_30px_#64ddff70]"
+            class="w-[500px] max-w-[80%] drop-shadow-[0_0_30px_#64ddff70]"
         />
 
-        <p class="text-base md:text-lg text-[#cfeaff] max-w-[600px]">
+        <p class="text-base md:text-lg text-[#cfeaff] max-w-[600px] mt-6">
           Deviens enquêteur et perce les mystères de la vérité.<br />
           Choisis ton enquête et découvre qui ment... ou non.
         </p>
       </div>
-      <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 mt-2">
+
+
+      <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 mb-50">
 
         <div
             class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 w-[250px] shadow-[0_0_25px_rgba(100,221,255,0.2)] hover:shadow-[0_0_35px_rgba(100,221,255,0.4)] transition-all"

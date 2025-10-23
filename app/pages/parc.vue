@@ -1,34 +1,34 @@
 <template>
   <div class="p-20 bg-[url('/parc.png')] bg-cover min-h-screen flex flex-col items-center">
     <img 
-      src="../../woman.png" alt="Sophie" 
-      class="w-30 h-30 absolute top-[45%] left-[25%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
+      src="/sophie.png" alt="Sophie" 
+      class="w-40 h-40 absolute top-[45%] left-[25%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in" 
       @click="openModal('avatar', 'Sophie')"    
     />
     <img 
-      src="../../man1.png" alt="Leo" 
-      class="w-30 h-30 absolute top-[30%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
+      src="/leo.png" alt="Leo" 
+      class="w-40 h-40 absolute top-[30%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in" 
       @click="openModal('avatar', 'Leo')"
     />
     <img 
-      src="../../man2.png" alt="Mateo" 
-      class="w-30 h-30 absolute top-[70%] left-[10%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
+      src="/mateo.png" alt="Mateo" 
+      class="w-40 h-40 absolute top-[70%] left-[10%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in" 
       @click="openModal('avatar', 'Mateo')"
     />
     <img
-      src="../../woman2.png" alt="Capucine"   
-      class="w-30 h-30 absolute top-[65%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer"
+      src="/capucine.png" alt="Capucine"   
+      class="w-40 h-40 absolute top-[65%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
       @click="openModal('avatar', 'Capucine')"
     />
     <img
       src="../../folder.png" alt="folder"   
-      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent hover:border-brand-purple border-8 transition duration-300 cursor-pointer"
+      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent hover:border-brand-purple border-8 transition duration-300 cursor-pointer animate-fade-in"
       @click="openModal('folder')"
     />
 
     <div class="flex items-center justify-center">
       <button
-        class="bg-[#B85EFF] text-white px-6 py-3 rounded hover:bg-[#a34ef0]"
+        class="bg-[#B85EFF] text-white px-6 py-3 rounded hover:bg-[#a34ef0] animate-fade-in"
         @click="$router.push('/denoncer')"
       >
         Dénoncer
@@ -81,7 +81,7 @@
         @click="closeModal"
       />
       <img
-        src="../../group3.png"
+        src="/group3.png"
         alt="Dossier d'enquête"
         class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
       />
@@ -174,6 +174,8 @@ async function sendMessage(persona: any) {
   persona.data.messages.push({ role: 'assistant', content: res })
 }
 </script>
+
+
 
 <style scoped>
 ::v-deep(article[data-role="user"] > div) {
