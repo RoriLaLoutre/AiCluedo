@@ -54,18 +54,12 @@
       v-if="modalType === 'folder'"
       class="relative bg-[#1f1f1f] p-4 rounded-xl shadow-lg w-[1000px] h-[650px]"
     >
-      <UButton
-        icon="i-lucide-x"
-        variant="ghost"
-        class="absolute top-[5%] right-[0%] z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
-        @click="closeModal"
-      /> 
       <img
-        src="/Group 3.png"
+        src="/Group_3.png"
         alt="Dossier d'enquête"
-        class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+        class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
       />
-      <div class="absolute top-[15%] left-[20%] w-[25%] h-[40%] overflow-y-auto">
+      <div class="absolute top-[10%] left-[15%] w-[30%] h-[50%] overflow-y-auto">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
           C'est une belle après-midi d'été au parc.
           Tout le monde fait la sieste après avoir bien joué…
@@ -75,7 +69,7 @@
           À toi de mener l'enquête : interroge les enfants, écoute leurs souvenirs, et découvre qui a volé les billes de Capucine !
         </p>
       </div>
-      <div class="absolute bottom-[17%] left-[17%] w-[30%] h-[19%] overflow-y-auto">
+      <div class="absolute bottom-[14%] left-[13%] w-[35%] h-[20%] overflow-y-auto">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
           Indice:
           <br>

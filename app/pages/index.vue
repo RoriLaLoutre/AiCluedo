@@ -4,6 +4,7 @@
   >
     <div class="absolute w-[700px] h-[700px] rounded-full bg-[#64ddff1a] blur-3xl"></div>
     <div class="relative z-10 flex flex-col items-center justify-between h-[90%] w-full max-w-[1200px] text-center px-6">
+
       <div class="flex flex-col items-center gap-4">
         <img
             src="/images/En_quete_de_verite_logo.png"
@@ -17,6 +18,7 @@
         </p>
       </div>
       <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10 mt-2">
+
         <div
             class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 w-[250px] shadow-[0_0_25px_rgba(100,221,255,0.2)] hover:shadow-[0_0_35px_rgba(100,221,255,0.4)] transition-all"
         >
@@ -29,6 +31,7 @@
           <button
               class="bg-[#64ddff] text-[#07155c] font-semibold rounded-full px-4 py-1.5 w-full text-sm transition hover:scale-105 hover:shadow-[0_0_15px_#64ddff]"
               @click="$router.push('/parc')"
+
           >
             Commencer
           </button>
@@ -50,9 +53,7 @@
           </button>
         </div>
       </div>
-      <div class="flex flex-col items-center">
 
-      </div>
     </div>
     <div class="absolute bottom-0 w-full h-[3px] bg-gradient-to-r from-[#64ddff] via-[#b874ff] to-[#64ddff]"></div>
   </main>
