@@ -2,7 +2,7 @@
   <main
       class="relative h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-[#08145a] via-[#0c1d91] to-[#1a097d] text-white font-[Poppins] overflow-hidden"
   >
-    <div class="absolute w-[700px] h-[700px] rounded-full bg-[#64ddff1a] blur-3xl"></div>
+    <div class="absolute w-[700px] h-[700px] rounded-full bg-[#64ddff1a] blur-3xl pointer-events-none"></div>
     <div class="relative z-10 flex flex-col items-center justify-between h-[90%] w-full max-w-[1200px] text-center px-6">
 
       <div class="flex flex-col items-center gap-4">
