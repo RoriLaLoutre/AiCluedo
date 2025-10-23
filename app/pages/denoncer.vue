@@ -1,10 +1,8 @@
 <template>
   <div
-        class="min-h-screen flex flex-col items-center justify-center text-white relative bg-cover bg-center"
-        style="background-image:
-            linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-            url('../parc.png');"
-    >
+    class="min-h-screen flex flex-col items-center justify-center text-white relative bg-cover bg-center"
+    style="background-image: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('../parc.png');"
+  >
     <button
       @click="$router.back()"
       class="absolute top-6 left-6 bg-white text-black px-4 py-2 rounded shadow hover:bg-gray-100 transition"
@@ -12,10 +10,9 @@
       ← Retour
     </button>
 
-    <h1 class="text-2xl font-bold mb-12 text-center drop-shadow-lg">
+    <h1 class="text-2xl mb-12 text-center drop-shadow-lg font-black" style="-webkit-text-stroke: 1px black;">
       Choisir la personne coupable
     </h1>
-
     <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
       <div
         v-for="suspect in suspects"
@@ -41,14 +38,17 @@
             class="w-full h-full object-cover transition-all duration-300"
           />
         </div>
-        <p class="mt-3 text-lg font-semibold">{{ suspect.name }}</p>
-      </div>
+<p class="mt-3 text-lg font-black" style="-webkit-text-stroke: 1px black;">
+  {{ suspect.name }}
+</p>      </div>
     </div>
 
+    <!-- bouton valider -->
     <div class="mt-12">
       <button
         @click="confirmAccusation"
         class="bg-[#B85EFF] text-white px-8 py-3 rounded hover:bg-[#a34ef0] transition"
+
         :disabled="!selectedSuspect"
       >
         Valider l'accusation
@@ -61,17 +61,17 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
 
 const suspects = [
-  { id: 1, name: 'Avatar 1', image: '/woman.png' },
-  { id: 2, name: 'Avatar 2', image: '/man1.png' }, // coupable
-  { id: 3, name: 'Avatar 3', image: '/woman2.png' },
-  { id: 4, name: 'Avatar 4', image: '/man2.png' },
+  { id: 1, name: 'Sophie', image: '/woman.png' },
+  { id: 2, name: 'Leo', image: '/man1.png' },
+  { id: 3, name: 'Capucine', image: '/woman2.png' },
+  { id: 4, name: 'Mateo', image: '/man2.png' },
 ]
-
 const selectedSuspect = ref<any>(null)
 const culpritId = 2
+const router = useRouter()
+
 
 function selectSuspect(suspect: any) {
   selectedSuspect.value = suspect
@@ -90,6 +90,7 @@ function confirmAccusation() {
 </script>
 
 <style scoped>
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.8s ease forwards;
