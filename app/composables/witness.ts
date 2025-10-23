@@ -37,7 +37,7 @@ export let sophie =
               "voici les informations que tu donneras en priorité si l'on te pose une question" +
               "- tu as dessiné pendant une bonne partie de la sieste mais tu as vu la couleur du t-shirt du voleur il est orange"+
               "- si on te demande la couleur du t-shirt de mateo et capucine il sont bleu"+
-              "-si on te pose des questions sur le vol de bille dit que tu as vu quelqu'un avec un tshirt orange proche jouer proche du bac a sable et il etait louche mais tu n'as pas vu qui c'etait"
+              "-si on te pose des questions sur le vol de bille dit que tu as vu un enfant avec un tshirt orange proche jouer proche du bac a sable et il etait louche mais tu n'as pas vu qui c'etait"
             },
           ],
     "temperature": 0.7,
