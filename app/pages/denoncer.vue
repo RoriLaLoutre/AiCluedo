@@ -2,7 +2,6 @@
   <div
     class="min-h-screen bg-[url(../parc.png)] bg-cover bg-center flex flex-col items-center justify-center text-white relative"
   >
-    <!-- bouton retour -->
     <button
       @click="$router.back()"
       class="absolute top-6 left-6 bg-white text-black px-4 py-2 rounded shadow hover:bg-gray-100 transition"
@@ -10,18 +9,17 @@
       ← Retour
     </button>
 
-    <!-- titre -->
     <h1 class="text-2xl font-bold mb-12 text-center drop-shadow-lg">
       Choisir la personne coupable
     </h1>
 
-    <!-- liste des avatars -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
       <div
         v-for="suspect in suspects"
         :key="suspect.id"
         @click="selectSuspect(suspect)"
-        class="flex flex-col items-center cursor-pointer transition-transform hover:scale-105"
+        data-avatar
+        class="flex flex-col items-center cursor-pointer transition-transform hover:scale-105 fade-in"
         :class="{
           grayscale: selectedSuspect && selectedSuspect.id !== suspect.id
         }"
@@ -44,7 +42,6 @@
       </div>
     </div>
 
-    <!-- bouton valider -->
     <div class="mt-12">
       <button
         @click="confirmAccusation"
@@ -65,13 +62,13 @@ const router = useRouter()
 
 const suspects = [
   { id: 1, name: 'Avatar 1', image: '/woman.png' },
-  { id: 2, name: 'Avatar 2', image: '/man1.png' }, // 🕵️ le coupable
+  { id: 2, name: 'Avatar 2', image: '/man1.png' },
   { id: 3, name: 'Avatar 3', image: '/woman2.png' },
   { id: 4, name: 'Avatar 4', image: '/man2.png' },
 ]
 
 const selectedSuspect = ref<any>(null)
-const culpritId = 2 // <-- le coupable pour l’instant
+const culpritId = 2
 
 function selectSuspect(suspect: any) {
   selectedSuspect.value = suspect
@@ -79,7 +76,6 @@ function selectSuspect(suspect: any) {
 
 function confirmAccusation() {
   if (!selectedSuspect.value) return
-
   if (selectedSuspect.value.id === culpritId) {
     router.push('/victoire')
   } else {
@@ -89,6 +85,22 @@ function confirmAccusation() {
 </script>
 
 <style scoped>
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+[data-avatar]:nth-child(1) { animation-delay: 0s; }
+[data-avatar]:nth-child(2) { animation-delay: 0.1s; }
+[data-avatar]:nth-child(3) { animation-delay: 0.2s; }
+[data-avatar]:nth-child(4) { animation-delay: 0.3s; }
+
 button:disabled {
   cursor: not-allowed;
 }
