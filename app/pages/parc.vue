@@ -85,15 +85,15 @@
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
           C'est une belle après-midi d'été au parc.
           Tout le monde fait la sieste après avoir bien joué…
-          Mais quand Capucine se réveille, sa boîte à billes bleue a disparu !
+          Mais quand <span class="font-bold text-red-400">Capucine</span> se réveille, sa boîte à billes bleue a disparu !
           Quelqu'un l'a sûrement prise pendant que tout le monde dormait.
           <br><br>
-          À toi de mener l'enquête : interroge les enfants, écoute leurs souvenirs, et découvre qui a volé les billes de Capucine !
+          <span class="italic">À toi de mener l'enquête : interroge les enfants, écoute leurs souvenirs, et découvre qui a volé les billes de Capucine !</span>
         </p>
       </div>
       <div class="absolute bottom-[17%] left-[17%] w-[30%] h-[19%] overflow-y-auto">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
-          Indice:
+          <span class="font-bold text-yellow-400">Indice :</span><br>
           <br>
           D'après les premiers témoignages, quelqu'un aurait aperçu une silhouette
           bouger près du bac à sable pendant la sieste.
@@ -106,7 +106,7 @@
         <textarea
           v-model="folderText"
           class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
-          placeholder="Entrez vos notes"
+          placeholder="Note tes soupçons, tes indices, ou tes observations ici..."
         ></textarea>
       </div>
     </div>
