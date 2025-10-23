@@ -23,7 +23,8 @@
         @click="selectSuspect(suspect)"
         class="flex flex-col items-center cursor-pointer transition-transform hover:scale-105"
         :class="{
-          grayscale: selectedSuspect && selectedSuspect.id !== suspect.id
+          'grayscale':
+            selectedSuspect && selectedSuspect.id !== suspect.id
         }"
       >
         <div
@@ -59,19 +60,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 const suspects = [
   { id: 1, name: 'Avatar 1', image: '/woman.png' },
-  { id: 2, name: 'Avatar 2', image: '/man1.png' }, // 🕵️ le coupable
+  { id: 2, name: 'Avatar 2', image: '/man1.png' },
   { id: 3, name: 'Avatar 3', image: '/woman2.png' },
   { id: 4, name: 'Avatar 4', image: '/man2.png' },
 ]
 
 const selectedSuspect = ref<any>(null)
-const culpritId = 2 // <-- le coupable pour l’instant
 
 function selectSuspect(suspect: any) {
   selectedSuspect.value = suspect
@@ -79,12 +76,7 @@ function selectSuspect(suspect: any) {
 
 function confirmAccusation() {
   if (!selectedSuspect.value) return
-
-  if (selectedSuspect.value.id === culpritId) {
-    router.push('/victoire')
-  } else {
-    router.push('/defaite')
-  }
+  alert(`Tu as accusé ${selectedSuspect.value.name} !`)
 }
 </script>
 
