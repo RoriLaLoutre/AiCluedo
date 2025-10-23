@@ -178,13 +178,15 @@ const folderText = ref('')
 
 const openModal = (type: 'avatar' | 'folder', witnessKey?: string) => {
   modalType.value = type
-  if (type === 'avatar' && witnessKey && witnesses[witnessKey]) {
-    selectedAvatar.value = witnesses[witnessKey] // 👈 on garde tout l’objet
-    witnessName.value = witnesses[witnessKey].name
+  if (type === 'avatar' && witnessKey) {
+    const witness = Object.values(witnesses).find(w => w.name === witnessKey)
+    if (witness) {
+      selectedAvatar.value = witness
+      witnessName.value = witnessKey
+    }
   }
   showModal.value = true
 }
-
 
 const closeModal = () => {
   showModal.value = false

@@ -170,7 +170,6 @@ const openModal = (type: 'avatar' | 'folder', witnessKey?: string) => {
   showModal.value = true
 }
 
-
 const closeModal = () => {
   showModal.value = false
   modalType.value = null
