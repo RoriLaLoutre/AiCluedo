@@ -29,7 +29,7 @@
 
     <div class="flex items-center justify-center">
       <button
-      class="bg-brand-navy text-white px-6 py-3 rounded hover:bg-brand-blue"
+      class="bg-[#B85EFF] text-white px-6 py-3 rounded hover:bg-[#a34ef0]"
       @click="$router.push('/denoncer')"
       >
         Dénoncer

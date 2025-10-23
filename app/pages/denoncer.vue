@@ -48,7 +48,7 @@
     <div class="mt-12">
       <button
         @click="confirmAccusation"
-        class="bg-red-600 text-white px-8 py-3 rounded hover:bg-red-700 transition"
+        class="bg-[#B85EFF] text-white px-8 py-3 rounded hover:bg-[#a34ef0] transition"
         :disabled="!selectedSuspect"
       >
         Valider l'accusation
