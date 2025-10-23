@@ -1,24 +1,24 @@
 <template>
   <div class="p-20 bg-[url(../../parc.png)] bg-cover min-h-screen flex flex-col items-center">
     <img 
-      src="../../woman.png" alt="woman" 
+      src="../../woman.png" alt="Sophie" 
       class="w-30 h-30 absolute top-[45%] left-[25%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
-      @click="openModal('avatar', 'ricardo')"    
+      @click="openModal('avatar', 'Sophie')"    
       />
     <img 
       src="../../man1.png" alt="man" 
       class="w-30 h-30 absolute top-[30%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
-      @click="openModal('avatar', 'ahu')"
+      @click="openModal('avatar', 'Leo')"
       />
     <img 
       src="../../man2.png" alt="man" 
       class="w-30 h-30 absolute top-[70%] left-[10%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
-      @click="openModal('avatar', 'esteban')"
+      @click="openModal('avatar', 'Mateo')"
       />
     <img
       src="../../woman2.png" alt="woman"   
       class="w-30 h-30 absolute top-[65%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer"
-      @click="openModal('avatar', 'mathis')"
+      @click="openModal('avatar', 'Capucine')"
     />
     <img
       src="../../folder.png" alt="folder"   
@@ -28,7 +28,13 @@
 
 
     <div class="flex items-center justify-center">
-      <button class="bg-brand-navy text-white px-6 py-3 rounded hover:bg-brand-blue">Dénoncer</button>
+
+      <button
+      class="bg-[#B85EFF] text-white px-6 py-3 rounded hover:bg-[#a34ef0]"
+      @click="$router.push('/denoncer')"
+      >
+        Dénoncer
+      </button>
     </div>
   </div>
 
@@ -37,7 +43,7 @@
     <!-- modal AVATAR -->
     <div v-if="modalType === 'avatar'" class="bg-white border rounded-xl p-6 w-[32rem] shadow-lg text-center relative">
       <div class="flex w-full justify-between items-center border-b pb-2 mb-4">
-        <h2 class="text-2xl font-bold text-brand-navy">Chat with {{ witnessName }}</h2>
+        <h2 class="text-2xl font-bold text-brand-navy">Tu parles {{ witnessName }}</h2>
         <UButton icon="i-lucide-x" variant="ghost" color="primary" @click="closeModal" />
       </div>
 
@@ -55,12 +61,12 @@
         <div class="p-3 border-t flex gap-2 items-center">
           <UInput
             v-model="input"
-            placeholder="Type your message..."
+            placeholder="Écrivez votre message"
             class="flex-1"
             @keyup.enter="sendMessage(selectedAvatar)"
           />
-          <UButton color="primary" @click="sendMessage(selectedAvatar)">Send</UButton>
-          <UButton icon="i-lucide-arrow-up-from-line" color="primary" @click="sendMessage(selectedAvatar)" />
+          <UButton color="primary" @click="sendMessage(selectedAvatar)">Envoyer</UButton>
+          <UButton icon="i-lucide-arrow-right" color="primary" @click="sendMessage(selectedAvatar)" />
         </div>
       </div>
     </div>
@@ -116,31 +122,32 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { UIMessage } from 'ai'
-import { mathis , ricardo , ahu, esteban } from "../composables/witness";
+import { capucine , leo , sophie, mateo } from "../composables/witness";
+
 
 const witnesses = {
-  mathis: { data: mathis, name: 'Mathis' , messages:[{
+  mateo: { data: mateo, name: 'Mateo' , messages:[{
         id: crypto.randomUUID(),
         role: 'assistant',
-        parts: [{ type: 'text', text: "Ya quoi msieur le policier" }]
+        parts: [{ type: 'text', text: "Bonjour, c'est vous qui venez me poser des questions?" }]
       }
   ]},
-  ahu: { data: ahu, name: 'Ahu',messages: [{
+  leo: { data: leo, name: 'Leo',messages: [{
         id: crypto.randomUUID(),
         role: 'assistant',
-        parts: [{ type: 'text', text: "Hey come here police guy , i'll answer all your questions hiii ha!" }]
+        parts: [{ type: 'text', text: "Moi c'est leo, qu'est ce que vous me voulez" }]
       }
     ]},
-  esteban: { data: esteban, name: 'Esteban' , messages:[{
+  capucine: { data: capucine, name: 'Capucine' , messages:[{
         id: crypto.randomUUID(),
         role: 'assistant',
-        parts: [{ type: 'text', text: "Bien le bonjour très cher monsieur n'hésitez pas a me poser des questions" }]
+        parts: [{ type: 'text', text: "On m'a volé mes billes! retrouvez le voleur pour moi s'il vous plaît" }]
       }
     ]},
-  ricardo: { data: ricardo, name: 'Ricardo' , messages: [{
+  sophie: { data: sophie, name: 'Sophie' , messages: [{
         id: crypto.randomUUID(),
         role: 'assistant',
-        parts: [{ type: 'text', text: "ACAB!" }]
+        parts: [{ type: 'text', text: "Bonjour, moi c'est Sophie posez moi vos questions" }]
       }
     ]},
 } as any
@@ -153,9 +160,12 @@ const folderText = ref('')
 
 const openModal = (type: 'avatar' | 'folder', witnessKey?: string) => {
   modalType.value = type
-  if (type === 'avatar' && witnessKey && witnesses[witnessKey]) {
-    selectedAvatar.value = witnesses[witnessKey] // 👈 on garde tout l’objet
-    witnessName.value = witnesses[witnessKey].name
+  if (type === 'avatar' && witnessKey) {
+    const witness = Object.values(witnesses).find(w => w.name === witnessKey)
+    if (witness) {
+      selectedAvatar.value = witness
+      witnessName.value = witnessKey
+    }
   }
   showModal.value = true
 }
@@ -225,9 +235,11 @@ async function sendMessage(persona: any) {
   padding-left: 15px;
   padding-right: 15px;
   color: white; 
+  border-radius: 1rem;
+
 }
 ::v-deep(article.group\/message) {
-  margin-bottom: 0.75rem; /* équivaut à gap-3 */
+  margin-bottom: 0.75rem;
 }
 ::v-deep(article[data-role="assistant"] > div) {
   justify-content: flex-start;
@@ -241,5 +253,7 @@ async function sendMessage(persona: any) {
   align-items: center;
   justify-content: space-between;
   color: white; 
+  border-radius: 1rem; 
+
 }
 </style>
