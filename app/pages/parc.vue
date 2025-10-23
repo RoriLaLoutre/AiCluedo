@@ -1,5 +1,5 @@
 <template>
-  <div class="p-20 bg-[url(../../parc.png)] bg-cover min-h-screen flex flex-col items-center">
+  <div class="p-20 bg-[url('/parc.png')] bg-cover min-h-screen flex flex-col items-center">
     <img 
       src="../../woman.png" alt="Sophie" 
       class="w-30 h-30 absolute top-[45%] left-[25%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer" 
@@ -86,6 +86,28 @@
         class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
       />
       <div class="absolute top-[15%] left-[20%] w-[25%] h-[40%] overflow-y-auto">
+        <p class="w-full h-full bg-transparent text-black resize-none outline-none text-sm p-1">
+          Indice:
+          <br>
+          D'après les premiers témoignages, quelqu'un aurait aperçu une silhouette
+          bouger près du bac à sable pendant la sieste.
+          <br>
+          Il paraît que <span class="font-bold">Sophie</span> n'a pas dormi et dessinait pendant ce temps-là.  
+          Elle a peut-être remarqué quelque chose d'important.
+          Capucine peut avoir des infos importantes sur son amie Sophie
+        </p>
+
+        
+      </div>
+      <div class="absolute bottom-[17%] left-[17%] w-[30%] h-[19%]">
+        <textarea
+          v-model="folderText"
+          class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
+          placeholder="Entrez vos notes"
+        ></textarea>
+        
+      </div>
+      <div class="absolute top-[15%] right-[20%] w-[25%] h-[70%]">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
           C'est une belle après-midi d'été au parc.
           Tout le monde fait la sieste après avoir bien joué…
@@ -94,24 +116,6 @@
           <br><br>
           À toi de mener l'enquête : interroge les enfants, écoute leurs souvenirs, et découvre qui a volé les billes de Capucine !
         </p>
-      </div>
-      <div class="absolute bottom-[17%] left-[17%] w-[30%] h-[19%] overflow-y-auto">
-        <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
-          Indice:
-          <br>
-          D'après les premiers témoignages, quelqu'un aurait aperçu une silhouette
-          bouger près du bac à sable pendant la sieste.
-          <br>
-          Il paraît que <span class="font-bold">Sophie</span> n'a pas dormi et dessinait pendant ce temps-là.  
-          Elle a peut-être remarqué quelque chose d'important.
-        </p>
-      </div>
-      <div class="absolute top-[15%] right-[20%] w-[25%] h-[70%]">
-        <textarea
-          v-model="folderText"
-          class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
-          placeholder="Entrez vos notes"
-        ></textarea>
       </div>
     </div>
   </div>
