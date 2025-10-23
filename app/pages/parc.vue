@@ -40,7 +40,7 @@
     <!-- modal AVATAR -->
     <div v-if="modalType === 'avatar'" class="bg-white border rounded-xl p-6 w-[32rem] shadow-lg text-center relative">
       <div class="flex w-full justify-between items-center border-b pb-2 mb-4">
-        <h2 class="text-2xl font-bold text-brand-navy">Tu parles {{ witnessName }}</h2>
+        <h2 class="text-2xl font-bold text-brand-navy">Tu parles à {{ witnessName }}</h2>
         <UButton icon="i-lucide-x" variant="ghost" color="primary" @click="closeModal" />
       </div>
 
