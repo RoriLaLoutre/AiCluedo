@@ -1,7 +1,10 @@
 <template>
   <div
-    class="min-h-screen bg-[url(../parc.png)] bg-cover bg-center flex flex-col items-center justify-center text-white relative"
-  >
+        class="min-h-screen flex flex-col items-center justify-center text-white relative bg-cover bg-center"
+        style="background-image:
+            linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+            url('../parc.png');"
+    >
     <button
       @click="$router.back()"
       class="absolute top-6 left-6 bg-white text-black px-4 py-2 rounded shadow hover:bg-gray-100 transition"
@@ -62,7 +65,7 @@ const router = useRouter()
 
 const suspects = [
   { id: 1, name: 'Avatar 1', image: '/woman.png' },
-  { id: 2, name: 'Avatar 2', image: '/man1.png' },
+  { id: 2, name: 'Avatar 2', image: '/man1.png' }, // coupable
   { id: 3, name: 'Avatar 3', image: '/woman2.png' },
   { id: 4, name: 'Avatar 4', image: '/man2.png' },
 ]
@@ -76,10 +79,12 @@ function selectSuspect(suspect: any) {
 
 function confirmAccusation() {
   if (!selectedSuspect.value) return
-  if (selectedSuspect.value.id === culpritId) {
-    router.push('/victoire')
+  const { id, name, image } = selectedSuspect.value
+
+  if (id === culpritId) {
+    router.push({ path: '/victoire', query: { name, image } })
   } else {
-    router.push('/defaite')
+    router.push({ path: '/defaite', query: { name, image } })
   }
 }
 </script>
