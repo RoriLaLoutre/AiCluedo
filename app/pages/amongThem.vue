@@ -123,7 +123,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { UIMessage } from 'ai'
-import { mathis , ricardo , ahu, esteban, robin, geoffroy, laetitia } from "../composables/witness";
+import { mathis , ahu, esteban, robin, geoffroy, laetitia } from "../composables/witness";
 
 const witnesses = {
   mathis: { data: mathis, name: 'Mathis' , messages:[{
