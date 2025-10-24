@@ -91,7 +91,7 @@
         alt="Dossier d'enquête"
         class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
       />
-      <div class="absolute top-[15%] left-[20%] w-[25%] h-[40%] overflow-y-auto">
+      <div class="absolute top-[16%] left-[17%] w-[30%] h-[70%] overflow-y-auto">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
             L’alarme d’urgence retentit dans la station spatiale.<br><br>
             Tous les membres d’équipage se réunissent dans la salle de réunion.
@@ -101,20 +101,20 @@
             <span class="italic">Observe bien les comportements, écoute les témoignages, et déduis qui est l’imposteur…</span>
         </p>
       </div>
-      <div class="absolute bottom-[17%] left-[17%] w-[30%] h-[19%] overflow-y-auto">
+      <div class="absolute bottom-[17%] right-[16%] w-[30%] h-[19%]">
+        <textarea
+          v-model="folderText"
+          class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
+          placeholder="Note tes soupçons, tes indices, ou tes observations ici..."
+        ></textarea>
+      </div>
+      <div class="absolute top-[15%] right-[20%] w-[25%] h-[44%] overflow-y-auto">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
           <span class="font-bold text-yellow-400">Indice :</span><br><br>
           Plusieurs témoins affirment avoir vu quelqu’un quitter la salle d’électricité peu avant la découverte du corps.<br><br>
           <span class="font-bold">Geoffroy</span> prétend avoir réparé le câblage, mais personne ne peut le confirmer.<br><br>
           <span class="font-bold">Laetitia</span>, elle, dit avoir vu une ombre passer près du réacteur juste avant la coupure de courant...
         </p>
-      </div>
-      <div class="absolute top-[15%] right-[20%] w-[25%] h-[70%]">
-        <textarea
-          v-model="folderText"
-          class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
-          placeholder="Note tes soupçons, tes indices, ou tes observations ici..."
-        ></textarea>
       </div>
     </div>
   </div>

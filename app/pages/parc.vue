@@ -2,7 +2,7 @@
   <div class="p-20 bg-[url('/parc.png')] bg-cover min-h-screen flex flex-col items-center">
     <img 
       src="/sophie.png" alt="Sophie" 
-      class="w-40 h-40 absolute top-[45%] left-[25%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in" 
+      class="w-40 h-40 absolute top-[40%] left-[25%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in" 
       @click="openModal('avatar', 'Sophie')"    
     />
     <img 
@@ -72,12 +72,12 @@
     <!-- Modal FOLDER -->
     <div
       v-if="modalType === 'folder'"
-      class="relative bg-[#1f1f1f] p-4 rounded-xl shadow-lg w-[1000px] h-[650px]"
+      class="relative bg-[#323232] p-4 rounded-xl shadow-lg w-[1000px] h-[650px]"
     >
       <UButton
         icon="i-lucide-x"
         variant="ghost"
-        class="absolute top-[5%] right-[0%] z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
+        class="absolute top-[4%] right-[3%] z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
         @click="closeModal"
       />
       <img
@@ -131,7 +131,6 @@ const witnesses = {
   capucine: { data: capucine, name: 'Capucine', messages:[{ id: crypto.randomUUID(), role: 'assistant', parts: [{ type: 'text', text: "On m'a volé mes billes ! Retrouvez le voleur s'il vous plaît." }] }] },
   sophie: { data: sophie, name: 'Sophie', messages:[{ id: crypto.randomUUID(), role: 'assistant', parts: [{ type: 'text', text: "Bonjour, moi c'est Sophie, posez-moi vos questions." }] }] },
 } as any
-
 const witnessName = ref('')
 const showModal = ref(false)
 const modalType = ref<'avatar' | 'folder' | null>(null)
@@ -157,7 +156,9 @@ function closeModal() {
   selectedAvatar.value = null
   witnessName.value = ''
 }
-
+onMounted(() => {
+    openModal('folder')
+});
 async function sendMessage(persona: any) {
   if (!input.value.trim() || !persona) return
 

@@ -63,10 +63,10 @@ import { useRouter } from 'vue-router'
 
 
 const suspects = [
-  { id: 1, name: 'Sophie', image: '/woman.png' },
-  { id: 2, name: 'Leo', image: '/man1.png' },
-  { id: 3, name: 'Capucine', image: '/woman2.png' },
-  { id: 4, name: 'Mateo', image: '/man2.png' },
+  { id: 1, name: 'Sophie', image: '/sophie.png' },
+  { id: 2, name: 'Leo', image: '/leo.png' },
+  { id: 3, name: 'Capucine', image: '/capucine.png' },
+  { id: 4, name: 'Mateo', image: '/mateo.png' },
 ]
 const selectedSuspect = ref<any>(null)
 const culpritId = 2
