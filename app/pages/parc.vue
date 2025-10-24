@@ -85,7 +85,25 @@
         alt="Dossier d'enquête"
         class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
       />
-      <div class="absolute top-[15%] left-[20%] w-[25%] h-[40%] overflow-y-auto">
+      <div class="absolute top-[15%] left-[20%] w-[25%] h-[50%] overflow-y-auto">
+        <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
+          C'est une belle après-midi d'été au parc.
+          Tout le monde fait la sieste après avoir bien joué…
+          Mais quand Capucine se réveille, sa boîte à billes bleue a disparu !
+          Quelqu'un l'a sûrement prise pendant que tout le monde dormait.
+          <br><br>
+          À toi de mener l'enquête : interroge les enfants, écoute leurs souvenirs, et découvre qui a volé les billes de Capucine !
+        </p>
+      </div>
+      <div class="absolute bottom-[17%] right-[15%] w-[30%] h-[19%]">
+        <textarea
+          v-model="folderText"
+          class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
+          placeholder="Entrez vos notes"
+        ></textarea>
+        
+      </div>
+      <div class="absolute top-[15%] right-[20%] w-[25%] h-[40%]">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none text-sm p-1">
           Indice:
           <br>
@@ -96,26 +114,7 @@
           Elle a peut-être remarqué quelque chose d'important.
           Capucine peut avoir des infos importantes sur son amie Sophie
         </p>
-
         
-      </div>
-      <div class="absolute bottom-[17%] left-[17%] w-[30%] h-[19%]">
-        <textarea
-          v-model="folderText"
-          class="w-full h-full bg-transparent text-black resize-none outline-none p-2"
-          placeholder="Entrez vos notes"
-        ></textarea>
-        
-      </div>
-      <div class="absolute top-[15%] right-[20%] w-[25%] h-[70%]">
-        <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
-          C'est une belle après-midi d'été au parc.
-          Tout le monde fait la sieste après avoir bien joué…
-          Mais quand Capucine se réveille, sa boîte à billes bleue a disparu !
-          Quelqu'un l'a sûrement prise pendant que tout le monde dormait.
-          <br><br>
-          À toi de mener l'enquête : interroge les enfants, écoute leurs souvenirs, et découvre qui a volé les billes de Capucine !
-        </p>
       </div>
     </div>
   </div>
