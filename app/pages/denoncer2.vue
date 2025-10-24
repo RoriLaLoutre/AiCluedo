@@ -37,7 +37,7 @@
           <img
             :src="suspect.image"
             :alt="suspect.name"
-            class="w-full h-full object-cover transition-all duration-300"
+            class="w-full h-full object-cover object-top transition-all duration-300"
           />
         </div>
         <p class="mt-3 text-lg font-black" style="-webkit-text-stroke: 1px black;">

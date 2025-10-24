@@ -32,7 +32,7 @@
     />
     <img
       src="/folder.png" alt="folder"   
-      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent hover:border-brand-purple border-8 transition duration-300 cursor-pointer animate-fade-in"
+      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent border-8 transition duration-300 cursor-pointer animate-bounce"
       @click="openModal('folder')"
     />
 
