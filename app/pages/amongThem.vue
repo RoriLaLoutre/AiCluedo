@@ -1,33 +1,33 @@
 <template>
   <div class="p-20 bg-[url(/amongThem.png)] bg-cover min-h-screen flex flex-col items-center">
     <img 
-      src="/woman.png" alt="woman" 
-      class="w-30 h-30 absolute top-[65%] left-[11%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
-      @click="openModal('avatar', 'Ricardo')"
+      src="/mathis.png" alt="Mathis" 
+      class="w-30 h-30 absolute top-[65%] left-[11%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
+      @click="openModal('avatar', 'Mathis')"
       />
     <img
-        src="/woman2.png" alt="woman"
-        class="w-30 h-30 absolute top-[62%] left-[61%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
+        src="/laeti.png" alt="Laetitia"
+        class="w-30 h-30 absolute top-[62%] left-[61%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
         @click="openModal('avatar', 'Laetitia')"
     />
     <img 
-      src="/man1.png" alt="man" 
-      class="w-30 h-30 absolute top-[62%] left-[80%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
+      src="/ahu.png" alt="Ahu" 
+      class="w-30 h-30 absolute top-[62%] left-[80%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
       @click="openModal('avatar', 'Ahu')"
       />
     <img 
-      src="/man2.png" alt="man" 
-      class="w-30 h-30 absolute top-[79%] left-[44%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
+      src="/esteban.png" alt="Esteban" 
+      class="w-30 h-30 absolute top-[79%] left-[44%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
       @click="openModal('avatar', 'Esteban')"
       />
     <img
-        src="/man3.png" alt="man"
-        class="w-30 h-30 absolute top-[53%] left-[53%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
+        src="/robin.png" alt="Robin"
+        class="w-30 h-30 absolute top-[53%] left-[53%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
         @click="openModal('avatar', 'Robin')"
     />
     <img
-        src="/man4.png" alt="man"
-        class="w-30 h-30 absolute top-[27%] left-[40%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
+        src="/geoffroy.png" alt="Geoffroy"
+        class="w-30 h-30 absolute top-[27%] left-[40%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
         @click="openModal('avatar', 'Geoffroy')"
     />
     <img
@@ -78,12 +78,12 @@
     <!-- Modal FOLDER -->
     <div
       v-if="modalType === 'folder'"
-      class="relative bg-[#1f1f1f] p-4 rounded-xl shadow-lg w-[1000px] h-[650px]"
+      class="relative bg-[#323232] p-4 rounded-xl shadow-lg w-[1000px] h-[650px]"
     >
       <UButton
         icon="i-lucide-x"
         variant="ghost"
-        class="absolute top-[5%] right-[0%] z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
+        class="absolute top-[4%] right-[3%] z-10 text-white text-2xl md:text-2xl lg:text-2xl cursor-pointer hover:bg-white/10"
         @click="closeModal"
       /> 
       <img
@@ -132,12 +132,6 @@ const witnesses = {
         parts: [{ type: 'text', text: "Ya quoi msieur le policier" }]
       }
   ]},
-  ricardo: { data: ricardo, name: 'Ricardo' , messages: [{
-      id: crypto.randomUUID(),
-      role: 'assistant',
-      parts: [{ type: 'text', text: "ACAB!" }]
-    }
-    ]},
   ahu: { data: ahu, name: 'Ahu',messages: [{
         id: crypto.randomUUID(),
         role: 'assistant',
@@ -194,6 +188,9 @@ const closeModal = () => {
   selectedAvatar.value = null
   witnessName.value = ''
 }
+onMounted(() => {
+    openModal('folder')
+});
 
 const messages = ref<UIMessage[]>([
   {
