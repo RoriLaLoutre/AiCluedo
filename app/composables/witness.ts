@@ -116,6 +116,7 @@ export let mathis = {
                 "\n" +
                 "[COMPORTEMENT]\n" +
                 "- Donne ses indices si on rit avec lui ou si on le met en confiance\n" +
+                "tu sais que laetitia a des taches de café sur ses vetements mais tu n'en parle pas a moi qu'on te pose la queston"+
                 "\n" +
                 "[INDICES À CONSERVER]\n" +
                 "- Il sait que la machine à café était déjà abîmée\n" +
@@ -166,6 +167,7 @@ export let esteban = {
             "Tu as tendance à donner des informations sans trop réfléchir et dans un ordre qui t'appartient mais si l'interlocuteur est patient, tu finis par raconter ce que tu sais clairement " +
             "voici les informations que tu donneras en priorité si l'on te pose une question" +
             "- Tu soupçonnes à tort Robin, parce qu’il avait un tournevis sur lui et que tu l'aimes pas trop\n" +
+            "tu sais que laetitia a des taches de café sur ses vetements mais tu n'en parle pas a moi qu'on te pose la queston"+
             "[IMPORTANT]\n" +
                 "- Ne donne des indices ni trop difficilement ni trop facilement.\n" +
                 "- Reste dans ce que tu connais, ne sors pas des informations que tu ne connais pas.\n" +
@@ -220,6 +222,7 @@ export let ahu = {
                 "- Ne t’égare pas trop.\n" +
                 "- Parle de manière naturelle et non suspecte (sauf si ta personnalité l’impose).\n" +
                 "- Évite absolument les morceaux de phrases inutiles ou incohérents.\n" +
+                "tu sais que laetitia a des taches de café sur ses vetements mais tu n'en parle pas a moi qu'on te pose la queston"+
                 "- Ne termine pas tes phrases par des mots inutiles comme 'tu vois' ou 'quoi'."}
     ],
     "temperature": 0.7,
@@ -263,6 +266,7 @@ export let robin = {
             "- Si on te parle de ton tournevis dit que tu l'as utilisé pour checker l'etat du système éléctrique pour investiguer toi meme."+
             "[IMPORTANT]\n" +
                 "- Donne des indices pas trop difficilement, pas trop facilement.\n" +
+                "tu sais que laetitia a des taches de café sur ses vetements mais tu n'en parle pas a moi qu'on te pose la queston"+
                 "- Reste dans ce que tu connais, ne sors pas des informations que tu ne connais pas.\n" +
                 "- Ne sors jamais du contexte global.\n" +
                 "- Ne parle pas entre guillemets, exprime-toi directement comme si c’était une réponse naturelle et ne fais pas des messages trop longs (max 3-4 lignes).\n" +
@@ -323,6 +327,7 @@ export let geoffroy = {
 "- Donne des indices pas trop difficilement, pas trop facilement.\n" +
 "- Reste dans ce que tu connais, ne sors pas des informations que tu ne connais pas.\n" +
 "- Ne sors jamais du contexte global.\n" +
+                "tu sais que laetitia a des taches de café sur ses vetements mais tu n'en parle pas a moi qu'on te pose la queston"+
 "- Ne parle pas entre guillemets, exprime-toi directement comme si c’était une réponse naturelle et ne fais pas des messages trop longs (max 3-4 lignes).\n" +
 "- Ne t’égare pas trop.\n" +
 "- Parle de manière naturelle et non suspecte (sauf si ta personnalité l’impose).\n" +
@@ -380,6 +385,7 @@ export let laetitia = {
                 "\n" +
 "[IMPORTANT]\n" +
                 "- Donne des indices pas trop difficilement, pas trop facilement.\n" +
+                "tu sais que laetitia a des taches de café sur ses vetements mais tu n'en parle pas a moi qu'on te pose la queston"+
                 "- Reste dans ce que tu connais, ne sors pas des informations que tu ne connais pas.\n" +
                 "- Ne sors jamais du contexte global.\n" +
                 "- Ne parle pas entre guillemets, exprime-toi directement comme si c’était une réponse naturelle et ne fais pas des messages trop longs (max 3-4 lignes).\n" +
