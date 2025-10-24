@@ -38,7 +38,9 @@
 
 
     <div class="flex items-center justify-center">
-      <button class="bg-brand-navy text-white px-6 py-3 rounded hover:bg-brand-blue animate-fade-in">Dénoncer</button>
+      <button class="bg-brand-navy text-white px-6 py-3 rounded hover:bg-brand-blue animate-fade-in"
+      @click="$router.push('/denoncer2')">
+      Dénoncer</button>
     </div>
   </div>
 
@@ -47,7 +49,7 @@
     <!-- modal AVATAR -->
     <div v-if="modalType === 'avatar'" class="bg-white border rounded-xl p-6 w-[32rem] shadow-lg text-center relative">
       <div class="flex w-full justify-between items-center border-b pb-2 mb-4">
-        <h2 class="text-2xl font-bold text-brand-navy">Chat with {{ witnessName }}</h2>
+        <h2 class="text-2xl font-bold text-brand-navy">Tu parles à {{ witnessName }}</h2>
         <UButton icon="i-lucide-x" variant="ghost" color="primary" @click="closeModal" />
       </div>
 
@@ -65,6 +67,7 @@
         <div class="p-3 border-t flex gap-2 items-center">
           <UInput
             v-model="input"
+            autofocus
             placeholder="Type your message..."
             class="flex-1"
             @keyup.enter="sendMessage(selectedAvatar)"
@@ -92,13 +95,14 @@
         class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
       />
       <div class="absolute top-[16%] left-[17%] w-[30%] h-[70%] overflow-y-auto">
-        <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
-            L’alarme d’urgence retentit dans la station spatiale.<br><br>
-            Tous les membres d’équipage se réunissent dans la salle de réunion.
-            Quelqu’un a découvert le corps de <span class="font-bold text-red-400">Mathis</span> près du réacteur…<br><br>
-            Il faut à tout prix trouver le coupable avant qu’il ne frappe à nouveau !
-            <br><br>
-            <span class="italic">Observe bien les comportements, écoute les témoignages, et déduis qui est l’imposteur…</span>
+        <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2 text-sm">
+            Le vaisseau Horizon IX, en mission scientifique dans la nébuleuse d’<span class="font-bold">Ashra</span>, dérive depuis 327 jours dans l’espace. <br>
+            <span class="font-bold text-red-400">Ricardo</span>, le technicien en chef, est retrouvé électrocuté par la machine à café. <br><br>
+
+            Le sabotage de la machine a déclenché une surcharge électrique dans le réseau du vaisseau vous avez 10min pour trouver le coupable puis réparer le système électrique. <br><br>
+
+            Le capitaine <span class="font-bold">Geoffroy</span> ordonne un confinement complet. <br>
+            Le joueur, officier de sécurité intérimaire, doit mener une enquête interne pour trouver le coupable et la boite à outil de <span class="font-bold text-red-400">Ricardo</span> avant que la tension (et le réacteur à fusion) ne monte trop.
         </p>
       </div>
       <div class="absolute bottom-[17%] right-[16%] w-[30%] h-[19%]">
@@ -109,11 +113,11 @@
         ></textarea>
       </div>
       <div class="absolute top-[15%] right-[20%] w-[25%] h-[44%] overflow-y-auto">
-        <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
+        <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2 text-sm">
           <span class="font-bold text-yellow-400">Indice :</span><br><br>
-          Plusieurs témoins affirment avoir vu quelqu’un quitter la salle d’électricité peu avant la découverte du corps.<br><br>
-          <span class="font-bold">Geoffroy</span> prétend avoir réparé le câblage, mais personne ne peut le confirmer.<br><br>
-          <span class="font-bold">Laetitia</span>, elle, dit avoir vu une ombre passer près du réacteur juste avant la coupure de courant...
+          Le capitaine <span class="font-bold">Geoffroy</span> t’attend dans la salle de commande. Il paraît nerveux et donne des ordres à tout le monde depuis l’incident.
+          Certains disent qu’il s’est disputé avec <span class="font-bold text-red-400">Ricardo</span> la veille de sa mort.
+          Peut-être que commencer par lui t’aiderait à comprendre ce qui s’est vraiment passé.
         </p>
       </div>
     </div>
