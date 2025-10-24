@@ -5,14 +5,14 @@
     <div class="absolute w-[700px] h-[700px] rounded-full bg-[#64ddff1a] blur-3xl pointer-events-none"></div>
     <div class="relative z-10 flex flex-col items-center justify-between h-[90%] w-full max-w-[1200px] text-center px-6">
 
-      <div class="flex flex-col items-center gap-4">
+      <div class="flex flex-col items-center gap-4 mt-8">
         <img
             src="/images/En_quete_de_verite_logo.png"
             alt="Logo En Quête de Vérité"
             class="w-[500px] max-w-[80%] drop-shadow-[0_0_30px_#64ddff70]"
         />
 
-        <p class="text-base md:text-lg text-[#cfeaff] max-w-[600px] mt-6">
+        <p class="text-base md:text-lg text-[#cfeaff] max-w-[600px] my-6">
           Deviens enquêteur et perce les mystères de la vérité.<br />
           Choisis ton enquête et découvre qui ment... ou non.
         </p>
