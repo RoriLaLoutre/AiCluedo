@@ -13,7 +13,7 @@
       <img
         :src="selectedImage"
         :alt="selectedName"
-        class="w-40 h-40 rounded-full border-4 border-white object-cover mb-4"
+        class="w-40 h-40 rounded-full border-4 border-white object-cover object-top mb-4"
       />
       <p class="text-lg font-semibold">{{ selectedName }}</p>
     </div>

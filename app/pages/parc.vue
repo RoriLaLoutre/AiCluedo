@@ -22,13 +22,13 @@
     />
     <img
       src="../../folder.png" alt="folder"   
-      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent hover:border-brand-purple border-8 transition duration-300 cursor-pointer animate-fade-in"
+      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent border-8 transition duration-300 cursor-pointer animate-bounce"
       @click="openModal('folder')"
     />
 
     <div class="flex items-center justify-center">
       <button
-        class="bg-[#B85EFF] text-white px-6 py-3 rounded hover:bg-[#a34ef0] animate-fade-in"
+        class="bg-[#B85EFF] text-white px-7 py-4 rounded hover:bg-[#a34ef0] animate-fade-in"
         @click="$router.push('/denoncer')"
       >
         Dénoncer
@@ -37,7 +37,6 @@
   </div>
 
   <div v-if="showModal" class="fixed inset-0 flex items-center justify-center z-50" @click.self="closeModal">
-    <!-- modal AVATAR -->
     <div v-if="modalType === 'avatar'" class="bg-white border rounded-xl p-6 w-[32rem] shadow-lg text-center relative">
       <div class="flex w-full justify-between items-center border-b pb-2 mb-4">
         <h2 class="text-2xl font-bold text-brand-navy">Tu parles à {{ witnessName }}</h2>
@@ -85,7 +84,7 @@
         alt="Dossier d'enquête"
         class="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
       />
-      <div class="absolute top-[15%] left-[20%] w-[25%] h-[50%] overflow-y-auto">
+      <div class="absolute top-[15%] left-[17%] w-[25%] h-[50%] overflow-y-auto">
         <p class="w-full h-full bg-transparent text-black resize-none outline-none p-2">
           C'est une belle après-midi d'été au parc.
           Tout le monde fait la sieste après avoir bien joué…

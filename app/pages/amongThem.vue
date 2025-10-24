@@ -32,7 +32,7 @@
     />
     <img
       src="/folder.png" alt="folder"   
-      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent hover:border-brand-purple border-8 transition duration-300 cursor-pointer animate-fade-in"
+      class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent border-8 transition duration-300 cursor-pointer animate-bounce"
       @click="openModal('folder')"
     />
 
@@ -133,37 +133,37 @@ const witnesses = {
   mathis: { data: mathis, name: 'Mathis' , messages:[{
         id: crypto.randomUUID(),
         role: 'assistant',
-        parts: [{ type: 'text', text: "Ya quoi msieur le policier" }]
+        parts: [{ type: 'text', text: "Salut, j'espère que tu as mangé parce que j'ai faim!" }]
       }
   ]},
   ahu: { data: ahu, name: 'Ahu',messages: [{
         id: crypto.randomUUID(),
         role: 'assistant',
-        parts: [{ type: 'text', text: "Hey come here police guy , i'll answer all your questions hiii ha!" }]
+        parts: [{ type: 'text', text: "Salut, je peux répondre à vos questions ?" }]
       }
     ]},
   esteban: { data: esteban, name: 'Esteban' , messages:[{
         id: crypto.randomUUID(),
         role: 'assistant',
-        parts: [{ type: 'text', text: "Bien le bonjour très cher monsieur n'hésitez pas a me poser des questions" }]
+        parts: [{ type: 'text', text: "Salut... Tu as des questions pour moi ?" }]
       }
     ]},
   robin: { data: robin, name: 'Robin' , messages: [{
       id: crypto.randomUUID(),
       role: 'assistant',
-      parts: [{ type: 'text', text: "Ouais… j’suis là. Qu’est-ce que vous voulez savoir ?" }]
+      parts: [{ type: 'text', text: "Salut à toi, jeune enquêteur !" }]
     }
     ]},
   geoffroy: { data: geoffroy, name: 'Geoffroy' , messages: [{
       id: crypto.randomUUID(),
       role: 'assistant',
-      parts: [{ type: 'text', text: "Ah, un flic ! Faites gaffe, y’a du courant dans l’air héhé." }]
+      parts: [{ type: 'text', text: "Dépêche-toi de me poser tes questions, j'ai pas que ça à faire !" }]
     }
     ]},
   laetitia: { data: laetitia, name: 'Laetitia' , messages: [{
       id: crypto.randomUUID(),
       role: 'assistant',
-      parts: [{ type: 'text', text: "Oh, encore un interrogatoire ? Très bien, j’espère que vous êtes plus poli que le dernier." }]
+      parts: [{ type: 'text', text: "Bonjour, comment puis-je vous aider ?" }]
     }
     ]},
 } as any
