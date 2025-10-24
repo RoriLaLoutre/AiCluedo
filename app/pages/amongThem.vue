@@ -253,6 +253,8 @@ async function sendMessage(persona: any) {
   padding-left: 15px;
   padding-right: 15px;
   color: white; 
+  border-radius: 1rem;
+
 }
 ::v-deep(article.group\/message) {
   margin-bottom: 0.75rem; /* équivaut à gap-3 */
@@ -269,5 +271,6 @@ async function sendMessage(persona: any) {
   align-items: center;
   justify-content: space-between;
   color: white; 
+  border-radius: 1rem;
 }
 </style>
