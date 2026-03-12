@@ -1,4 +1,4 @@
-const modelName = "gemma3:4b-perf"
+const modelName = "gemma3-12b"
 export let leo =
   {
     "model": modelName,
@@ -341,7 +341,7 @@ export let geoffroy = {
 
 
 export let laetitia = {
-  "model": "gemma3:4b-perf",
+  "model": "gemma3-12b",
   "messages": [
     {
       "role": "system",
