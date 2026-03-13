@@ -341,7 +341,7 @@ export let geoffroy = {
 
 
 export let laetitia = {
-  "model": "gemma3-12b",
+  "model": modelName,
   "messages": [
     {
       "role": "system",
