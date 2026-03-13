@@ -1,32 +1,31 @@
 <template>
   <div class="p-20 bg-[url('/parc.png')] bg-cover min-h-screen flex flex-col items-center">
-    <img 
-      src="/sophie.png" alt="Sophie" 
-      class="w-40 h-40 absolute top-[40%] left-[25%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in" 
-      @click="openModal('avatar', 'Sophie')"    
-    />
-    <img 
-      src="/leo.png" alt="Leo" 
-      class="w-40 h-40 absolute top-[30%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in" 
-      @click="openModal('avatar', 'Leo')"
-    />
-    <img 
-      src="/mateo.png" alt="Mateo" 
-      class="w-40 h-40 absolute top-[70%] left-[10%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in" 
-      @click="openModal('avatar', 'Mateo')"
-    />
+    <div class="absolute top-[40%] left-[25%] group cursor-pointer" @click="openModal('avatar', 'Sophie')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Sophie</span>
+      <img src="/sophie.png" alt="Sophie" class="w-40 h-40 border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
+    <div class="absolute top-[30%] left-[65%] group cursor-pointer" @click="openModal('avatar', 'Leo')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Léo</span>
+      <img src="/leo.png" alt="Leo" class="w-40 h-40 border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
+    <div class="absolute top-[70%] left-[10%] group cursor-pointer" @click="openModal('avatar', 'Mateo')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Matéo</span>
+      <img src="/mateo.png" alt="Mateo" class="w-40 h-40 border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
+    <div class="absolute top-[65%] left-[65%] group cursor-pointer" @click="openModal('avatar', 'Capucine')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Capucine</span>
+      <img src="/capucine.png" alt="Capucine" class="w-40 h-40 border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
     <img
-      src="/capucine.png" alt="Capucine"   
-      class="w-40 h-40 absolute top-[65%] left-[65%] border-transparent hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
-      @click="openModal('avatar', 'Capucine')"
-    />
-    <img
-      src="../../folder.png" alt="folder"   
+      src="/folder.png" alt="folder"
       class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent border-8 transition duration-300 cursor-pointer animate-bounce"
       @click="openModal('folder')"
     />
 
-    <div class="flex items-center justify-center">
+    <div class="flex flex-col items-center justify-center gap-2">
+      <div class="bg-black/50 text-white font-mono text-xl px-5 py-2 rounded-lg backdrop-blur-sm">
+        ⏱ {{ formattedTime }}
+      </div>
       <button
         class="bg-[#B85EFF] text-white px-7 py-4 rounded hover:bg-[#a34ef0] animate-fade-in"
         @click="$router.push('/denoncer')"
@@ -120,7 +119,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { UIMessage } from 'ai'
 import { capucine , leo , sophie, mateo } from "../composables/witness"
 
@@ -136,6 +135,15 @@ const modalType = ref<'avatar' | 'folder' | null>(null)
 const selectedAvatar = ref<any>(null)
 const folderText = ref('')
 const input = ref('')
+
+const elapsed = ref(0)
+let intervalId: ReturnType<typeof setInterval> | null = null
+
+const formattedTime = computed(() => {
+  const m = Math.floor(elapsed.value / 60).toString().padStart(2, '0')
+  const s = (elapsed.value % 60).toString().padStart(2, '0')
+  return `${m}:${s}`
+})
 
 function openModal(type: 'avatar' | 'folder', witnessKey?: string) {
   modalType.value = type
@@ -156,20 +164,25 @@ function closeModal() {
   witnessName.value = ''
 }
 onMounted(() => {
-    openModal('folder')
-});
+  openModal('folder')
+  intervalId = setInterval(() => { elapsed.value++ }, 1000)
+})
+
+onUnmounted(() => {
+  if (intervalId) clearInterval(intervalId)
+})
 async function sendMessage(persona: any) {
   if (!input.value.trim() || !persona) return
 
   const messageContent = input.value
   input.value = ''
 
-  persona.messages.push({ role: 'user', content: messageContent })
+  persona.messages.push({ id: crypto.randomUUID(), role: 'user', parts: [{ type: 'text', text: messageContent }] })
   persona.data.messages.push({ role: 'user', content: messageContent })
 
   const res = await useSendMessageToAi(persona.data)
 
-  persona.messages.push({ role: 'assistant', content: res })
+  persona.messages.push({ id: crypto.randomUUID(), role: 'assistant', parts: [{ type: 'text', text: res }] })
   persona.data.messages.push({ role: 'assistant', content: res })
 }
 </script>

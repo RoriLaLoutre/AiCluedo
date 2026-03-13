@@ -1,35 +1,29 @@
 <template>
   <div class="p-20 bg-[url(/amongThem.png)] bg-cover min-h-screen flex flex-col items-center">
-    <img 
-      src="/mathis.png" alt="Mathis" 
-      class="w-30 h-30 absolute top-[65%] left-[11%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
-      @click="openModal('avatar', 'Mathis')"
-      />
-    <img
-        src="/laeti.png" alt="Laetitia"
-        class="w-30 h-30 absolute top-[62%] left-[61%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
-        @click="openModal('avatar', 'Laetitia')"
-    />
-    <img 
-      src="/ahu.png" alt="Ahu" 
-      class="w-30 h-30 absolute top-[62%] left-[80%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
-      @click="openModal('avatar', 'Ahu')"
-      />
-    <img 
-      src="/esteban.png" alt="Esteban" 
-      class="w-30 h-30 absolute top-[79%] left-[44%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
-      @click="openModal('avatar', 'Esteban')"
-      />
-    <img
-        src="/robin.png" alt="Robin"
-        class="w-30 h-30 absolute top-[53%] left-[53%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
-        @click="openModal('avatar', 'Robin')"
-    />
-    <img
-        src="/geoffroy.png" alt="Geoffroy"
-        class="w-30 h-30 absolute top-[27%] left-[40%] border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full cursor-pointer animate-fade-in"
-        @click="openModal('avatar', 'Geoffroy')"
-    />
+    <div class="absolute top-[65%] left-[11%] group cursor-pointer" @click="openModal('avatar', 'Mathis')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Mathis</span>
+      <img src="/mathis.png" alt="Mathis" class="w-30 h-30 border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
+    <div class="absolute top-[62%] left-[61%] group cursor-pointer" @click="openModal('avatar', 'Laetitia')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Laetitia</span>
+      <img src="/laeti.png" alt="Laetitia" class="w-30 h-30 border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
+    <div class="absolute top-[62%] left-[80%] group cursor-pointer" @click="openModal('avatar', 'Ahu')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Ahu</span>
+      <img src="/ahu.png" alt="Ahu" class="w-30 h-30 border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
+    <div class="absolute top-[79%] left-[44%] group cursor-pointer" @click="openModal('avatar', 'Esteban')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Esteban</span>
+      <img src="/esteban.png" alt="Esteban" class="w-30 h-30 border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
+    <div class="absolute top-[53%] left-[53%] group cursor-pointer" @click="openModal('avatar', 'Robin')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Robin</span>
+      <img src="/robin.png" alt="Robin" class="w-30 h-30 border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
+    <div class="absolute top-[27%] left-[40%] group cursor-pointer" @click="openModal('avatar', 'Geoffroy')">
+      <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black/70 text-white text-sm font-semibold px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">Geoffroy</span>
+      <img src="/geoffroy.png" alt="Geoffroy" class="w-30 h-30 border-transparent object-cover object-top hover:border-brand-purple border-8 transition duration-300 rounded-full animate-fade-in" />
+    </div>
     <img
       src="/folder.png" alt="folder"   
       class="w-30 h-30 absolute top-[5%] left-[90%] border-transparent border-8 transition duration-300 cursor-pointer animate-bounce"
@@ -37,7 +31,11 @@
     />
 
 
-    <div class="flex items-center justify-center">
+    <div class="flex flex-col items-center justify-center gap-2">
+      <div class="bg-black/60 font-mono text-xl px-5 py-2 rounded-lg backdrop-blur-sm"
+           :class="timeLeft <= 60 ? 'text-red-400 animate-pulse' : 'text-green-400'">
+        ⏱ {{ formattedTime }}
+      </div>
       <button class="bg-brand-navy text-white px-6 py-3 rounded hover:bg-brand-blue animate-fade-in"
       @click="$router.push('/denoncer2')">
       Dénoncer</button>
@@ -125,7 +123,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { UIMessage } from 'ai'
 import { mathis , ahu, esteban, robin, geoffroy, laetitia } from "../composables/witness";
 
@@ -174,6 +172,15 @@ const modalType = ref<'avatar' | 'folder' | null>(null)
 const selectedAvatar = ref<any>(null)
 const folderText = ref('')
 
+const timeLeft = ref(600)
+let intervalId: ReturnType<typeof setInterval> | null = null
+
+const formattedTime = computed(() => {
+  const m = Math.floor(timeLeft.value / 60).toString().padStart(2, '0')
+  const s = (timeLeft.value % 60).toString().padStart(2, '0')
+  return `${m}:${s}`
+})
+
 const openModal = (type: 'avatar' | 'folder', witnessKey?: string) => {
   modalType.value = type
   if (type === 'avatar' && witnessKey) {
@@ -193,8 +200,16 @@ const closeModal = () => {
   witnessName.value = ''
 }
 onMounted(() => {
-    openModal('folder')
-});
+  openModal('folder')
+  intervalId = setInterval(() => {
+    if (timeLeft.value > 0) timeLeft.value--
+    else if (intervalId) clearInterval(intervalId)
+  }, 1000)
+})
+
+onUnmounted(() => {
+  if (intervalId) clearInterval(intervalId)
+})
 
 const messages = ref<UIMessage[]>([
   {
@@ -212,34 +227,13 @@ async function sendMessage(persona: any) {
   const messageContent = input.value
   input.value = ''
 
-  // Ajout du message utilisateur
-  persona.messages.push({
-    role: 'user',
-    content: messageContent
-  })
-  persona.data.messages.push({
-    role: 'user',
-    content: messageContent
-  })
+  persona.messages.push({ id: crypto.randomUUID(), role: 'user', parts: [{ type: 'text', text: messageContent }] })
+  persona.data.messages.push({ role: 'user', content: messageContent })
 
-  const res = await useSendMessageToAi(persona.data) // tu continues à envoyer la data du témoin
+  const res = await useSendMessageToAi(persona.data)
 
-  persona.messages.push({
-    role: 'assistant',
-    content: res
-  })
-  persona.data.messages.push({
-    role: 'assistant',
-    content: res
-  })
-
-
-  const assistantMessage: UIMessage = {
-    id: crypto.randomUUID(),
-    role: 'assistant',
-    parts: [{ type: 'text', text: `${res}` }]
-  }
-  messages.value.push(assistantMessage)
+  persona.messages.push({ id: crypto.randomUUID(), role: 'assistant', parts: [{ type: 'text', text: res }] })
+  persona.data.messages.push({ role: 'assistant', content: res })
 }
 </script>
 
